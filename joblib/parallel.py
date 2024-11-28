@@ -1910,12 +1910,12 @@ class Parallel(Logger):
         else:
             n_jobs = self._effective_n_jobs()
 
-        if n_jobs == 1:
-            # If n_jobs==1, run the computation sequentially and return
-            # immediately to avoid overheads.
-            output = self._get_sequential_output(iterable)
-            next(output)
-            return output if self.return_generator else list(output)
+        # if n_jobs == 1:
+        #     # If n_jobs==1, run the computation sequentially and return
+        #     # immediately to avoid overheads.
+        #     output = self._get_sequential_output(iterable)
+        #     next(output)
+        #     return output if self.return_generator else list(output)
 
         # Let's create an ID that uniquely identifies the current call. If the
         # call is interrupted early and that the same instance is immediately
