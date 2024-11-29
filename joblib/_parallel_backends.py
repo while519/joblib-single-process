@@ -531,9 +531,9 @@ class LokyBackend(AutoBatchingMixin, ParallelBackendBase):
                   idle_worker_timeout=300, **memmappingexecutor_args):
         """Build a process executor and return the number of workers"""
         n_jobs = self.effective_n_jobs(n_jobs)
-        if n_jobs == 1:
-            raise FallbackToBackend(
-                SequentialBackend(nesting_level=self.nesting_level))
+        # if n_jobs == 1:
+        #     raise FallbackToBackend(
+        #         SequentialBackend(nesting_level=self.nesting_level))
 
         self._workers = get_memmapping_executor(
             n_jobs, timeout=idle_worker_timeout,
